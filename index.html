@@ -46,6 +46,7 @@ function carousel() {
   x[myIndex-1].style.display = "block";
   setTimeout(carousel, 3000);
 }
+
 </script>
 <div class="container">
  <form action="action_page.php">
@@ -55,15 +56,40 @@ function carousel() {
   <input type="text" id="fphone" cell="phoneNumber" placeholder="phoneNumber..">
   <label for="area" >Location</label>
   <input type="text" id="area" geographical="Location" placeholder="Location..">
-  <label for ="country">Country</label>
-  <select id="country" name="country">
-    <option value="kenya">Kenya</option>
-    <option value="rwanda">Rwanda</option>
-    <option value="uganda">Uganda</option>
- </select>
+ <input id ="submit" type = "button" onclick="display()" value='Submit'/>
+function checkOut(){
+    var CompanyName;
+    var phoneNumber;
+    var location;
+    function getCompanyName(){
+        return document.getElementById("company").value
+        }
+    function getphoneNumber(){
+        return document.getElementById("phone").value
+        }
+    function getLocation(){
+        return document.getElementById("location").value
 
+    }
+    document.getElementById("submit").addEventListener('click',function (display){
+    display.preventDefault();
+    company = getCompanyName()
+    phoneNumber = getphoneNumber()
+    location = getLocation()
+    alert(`your company${CompanyName},phone number${phoneNumber},and your location${Location}`)
+}
+ document.getElementById("form").submit();
+
+   });
+ }
 </div>
 </body>
 </html>
 
-{% comment %} question 3 {% endcomment %}
+{% comment %} question 3 The carousel is a slideshow for cycling through a series of content in website.it has more than one image
+
+we call our function first
+ We threfore loop through them at different intervals of 3000 milliseconds and display them
+ carousel works like a callback function
+ setimeout registers ,the function carousel which is to be called after 3000 ms.
+ getElementByClassName will help us to get access to many images and display them in a slide show {% endcomment %}
